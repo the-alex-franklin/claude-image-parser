@@ -1,7 +1,9 @@
-import { Hono } from "https://deno.land/x/hono@v3.11.4/mod.ts";
-import { encodeBase64 } from "https://deno.land/std@0.224.0/encoding/base64.ts";
+import { Hono } from "npm:hono";
+import { encodeBase64 } from "jsr:@std/encoding/base64";
 import { env } from "./env.ts";
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from "npm:@anthropic-ai/sdk";
+
+type ValidFileTypes = "image/jpeg" | "image/png" | "image/gif" | "image/webp";
 
 const anthropic = new Anthropic({
   apiKey: env.CLAUDE_API_KEY,
@@ -47,11 +49,7 @@ app.post("/analyze", async (c) => {
             type: "image",
             source: {
               type: "base64",
-              media_type: file.type as
-                | "image/jpeg"
-                | "image/png"
-                | "image/gif"
-                | "image/webp",
+              media_type: file.type as ValidFileTypes,
               data: base64Image,
             },
           },
