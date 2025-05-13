@@ -10,13 +10,16 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable", "Deno.ns"],
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "jsxImportSourceTypes": "@types/react"
+    "jsxImportSourceTypes": "@types/react",
+    "strict": true,
+    "strictNullChecks": true
   },
   "imports": {
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.4",
     "@types/react": "npm:@types/react@^19.0.10",
     "@types/react-dom": "npm:@types/react-dom@^19.0.4",
     "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.4",
+    "axios": "npm:axios@^1.9.0",
     "react": "npm:react@^19.0.0",
     "react-dom": "npm:react-dom@^19.0.0",
     "vite": "npm:vite@^6.3.5"
@@ -27,5 +30,8 @@
         "no-explicit-any"
       ]
     }
+  },
+  "fmt": {
+    "lineWidth": 120
   }
 }
