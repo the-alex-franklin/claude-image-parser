@@ -70,7 +70,6 @@ app.post("/analyze", async (c) => {
       .parse(responseText);
 
     return c.json(parsedResponse, 200);
-    // deno-lint-ignore no-unused-vars
   } catch (error) {
     console.log("Error parsing claude response:", error);
     return c.json({ error: "Invalid response" }, 500);
